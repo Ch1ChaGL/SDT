@@ -1,0 +1,16 @@
+﻿<Window x:Class="lb1._2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lb1._2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="177" Width="223">
+    <Grid Margin="0,0,127,47">
+        <Canvas Margin="0,0,646,282">
+            <Label Content="Введите количество этажей:" Canvas.Top="20" Canvas.Left="20"/>
+            <TextBox Name="floorTextBox" Canvas.Top="50" Canvas.Left="20" Width="100"/>
+            <Button Content="Продолжить" Click="ContinueButton_Click" Canvas.Top="80" Canvas.Left="20" Padding="10"/>
+        </Canvas>
+    </Grid>
+</Window>

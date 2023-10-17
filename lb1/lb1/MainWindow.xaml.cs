@@ -62,7 +62,6 @@ namespace lb1
 
         public double getCost()
         {
-
             return getOrder().GetCost();
         }
         public string getDescr()
