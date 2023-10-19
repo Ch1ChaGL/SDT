@@ -113,7 +113,6 @@ namespace lb1._2
 
                     timerMoveElevator.Stop();
                     timerOpenDoor.Start();
-
                     enableBtn(true);
                 }
                 if (destinationFloor > elevator.GetCurrentFloor())
@@ -149,10 +148,12 @@ namespace lb1._2
         {
             elevator.SetIsOpen(!elevator.GetIsOpen());
             timerCloseDoor.Stop();
+
         }
 
         private void Timer_State(object sender, EventArgs e)
         {
+
             if (destinationFloor == elevator.GetCurrentFloor())
             {
                 State.Content = $"Лифт прибыл на этаж {elevator.GetCurrentFloor()}";
