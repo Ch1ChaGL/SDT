@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        Вы выбрали следующий фильм: <br />
+        <p>Год: @Model.Year</p>
+        <p>Название: @Model.filmName</p>
+    </div>
+    @Html.ActionLink("На главную", "../Home/Index");
+</body>
+</html>
+
+

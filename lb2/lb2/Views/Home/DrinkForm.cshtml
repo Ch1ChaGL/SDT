@@ -1,0 +1,27 @@
+﻿@{ 
+    Layout = null;
+}
+@using lb2.Models
+@model lb2.Models.DrinkData
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <p>
+            Drink Type: @Html.DropDownListFor(m => m.DrinkType, new SelectList(Enum.GetValues(typeof(DrinkType))),
+           "Select Drink Category")
+        </p>
+        <p>Milk: @Html.TextBoxFor(x => x.Milk)</p>
+        <p>Sugar: @Html.TextBoxFor(x => x.Sugar)</p>
+        <input type="submit" value="ok"/>
+    }
+</body>
+</html>
+

@@ -1,32 +1,45 @@
-﻿using lb2.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 
 namespace lb2.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public ViewResult Index()
         {
-            _logger = logger;
+            ViewBag.Title = "MyCafe";
+            return View();
         }
-
-        public IActionResult Index()
+        [HttpGet]
+        public ViewResult DrinkForm()
         {
+            ViewBag.Title = "Drinks";
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public ViewResult DrinkForm(Models.DrinkData drinkData)
         {
-            return View();
+            ViewBag.Title = "Bill";
+            double cost = 0.0;
+
+            var type = drinkData.DrinkType;
+            if (type == Models.DrinkType.Alcohol) cost += drinkData.AlcoholCost;
+            if (type == Models.DrinkType.Coffee) cost += drinkData.CoffeeCost;
+            if (type == Models.DrinkType.Juice) cost += drinkData.JuiceCost;
+            if (type == Models.DrinkType.Tea) cost += drinkData.TeaCost;
+
+            cost += drinkData.Sugar * drinkData.SugarCost;
+            cost += drinkData.Milk * drinkData.MilkCost;
+
+            ViewBag.Cost = cost;
+
+            return View("Bill", drinkData);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+
     }
 }

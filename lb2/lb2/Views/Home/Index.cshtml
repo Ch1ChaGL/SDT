@@ -1,8 +1,30 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@{ 
+    Layout = null;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title</title>
+    </head>
+    <body>
+       <h4>@ViewBag.CafeName</h4>
+        <div>
+            <h3>Menu</h3>
+            @Html.ActionLink("Drinks", "DrinkForm")
+        </div>
+        <form action="/My/GetFilm" method="get">
+            <div>
+                <label>Год: </label>
+                <input type="text" name="year" />
+            </div>
+            <div>
+                <label>Название</label>
+                <input type="text" name="filmName" />
+            </div>
+            <input type="submit" value="ok" />
+        </form>
+    </body>
+</html>
+
