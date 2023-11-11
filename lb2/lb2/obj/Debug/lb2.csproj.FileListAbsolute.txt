@@ -148,3 +148,5 @@ F:\ИРСПО\Лабы\lb2\lb2\obj\Debug\lb2.csproj.CoreCompileInputs.cache
 F:\ИРСПО\Лабы\lb2\lb2\obj\Debug\lb2.csproj.CopyComplete
 F:\ИРСПО\Лабы\lb2\lb2\obj\Debug\lb2.dll
 F:\ИРСПО\Лабы\lb2\lb2\obj\Debug\lb2.pdb
+C:\Users\User\Desktop\ИРСПО\lb2\lb2\obj\Debug\lb2.dll
+C:\Users\User\Desktop\ИРСПО\lb2\lb2\obj\Debug\lb2.pdb
