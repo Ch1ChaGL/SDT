@@ -1,0 +1,10 @@
+^C:\USERS\USER\DESKTOP\EXAMPLE2\_BUILD_LIB\CMAKEFILES\764F8FAD953B88FFD0E185DAEBB9C300\GENERATE.STAMP.RULE
+setlocal
+C:\Users\User\Desktop\cmake-3.27.6-windows-i386\bin\cmake.exe -SC:/Users/User/Desktop/example2/lib -BC:/Users/User/Desktop/example2/_build_lib --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/User/Desktop/example2/_build_lib/lib.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

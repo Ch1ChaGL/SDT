@@ -1,0 +1,4 @@
+C:/Users/User/Desktop/example2/_build_lib/CMakeFiles/ALL_BUILD.dir
+C:/Users/User/Desktop/example2/_build_lib/CMakeFiles/ZERO_CHECK.dir
+C:/Users/User/Desktop/example2/_build_lib/sample_lib/CMakeFiles/sample_lib.dir
+C:/Users/User/Desktop/example2/_build_lib/sample_program/CMakeFiles/sample_program.dir
