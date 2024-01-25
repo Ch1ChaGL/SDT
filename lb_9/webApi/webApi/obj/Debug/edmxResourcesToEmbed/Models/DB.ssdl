@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище db_car" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Buyer">
+    <Key>
+      <PropertyRef Name="buyer_id" />
+    </Key>
+    <Property Name="buyer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Car">
+    <Key>
+      <PropertyRef Name="car_id" />
+    </Key>
+    <Property Name="car_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar(max)" />
+    <Property Name="price" Type="int" />
+  </EntityType>
+  <EntityType Name="CarBuyer">
+    <Key>
+      <PropertyRef Name="car_id" />
+      <PropertyRef Name="buyer_id" />
+    </Key>
+    <Property Name="car_id" Type="int" Nullable="false" />
+    <Property Name="buyer_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_CarBuyer_Buyer1">
+    <End Role="Buyer" Type="Self.Buyer" Multiplicity="1" />
+    <End Role="CarBuyer" Type="Self.CarBuyer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buyer">
+        <PropertyRef Name="buyer_id" />
+      </Principal>
+      <Dependent Role="CarBuyer">
+        <PropertyRef Name="buyer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CarBuyer_Car1">
+    <End Role="Car" Type="Self.Car" Multiplicity="1" />
+    <End Role="CarBuyer" Type="Self.CarBuyer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="car_id" />
+      </Principal>
+      <Dependent Role="CarBuyer">
+        <PropertyRef Name="car_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище db_carContainer">
+    <EntitySet Name="Buyer" EntityType="Self.Buyer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Car" EntityType="Self.Car" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CarBuyer" EntityType="Self.CarBuyer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CarBuyer_Buyer1" Association="Self.FK_CarBuyer_Buyer1">
+      <End Role="Buyer" EntitySet="Buyer" />
+      <End Role="CarBuyer" EntitySet="CarBuyer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CarBuyer_Car1" Association="Self.FK_CarBuyer_Car1">
+      <End Role="Car" EntitySet="Car" />
+      <End Role="CarBuyer" EntitySet="CarBuyer" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
